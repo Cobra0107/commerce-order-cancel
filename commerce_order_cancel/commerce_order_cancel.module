@@ -1,0 +1,28 @@
+<?php
+
+	/**
+	 * Implements hook_menu().
+	 */
+	function commerce_order_cancel_menu() {
+	  $items['users/%user/orders/%commerce_order'] = array(
+	    'title' => 'Cancel Order',
+	    'page callback' => 'commerce_order_cancel',
+	    'page arguments' => array(1, 3),
+	    'access callback' => TRUE,
+
+	  );
+	  return $items;
+	}
+
+	function commerce_order_cancel($user, $order) {
+
+		dsm($order);
+		dsm($user);
+		$order->status = 'canceled';
+		commerce_order_save($order);
+
+        drupal_goto('user/',$user->uid);
+		return 'adasd';
+	}
+
+

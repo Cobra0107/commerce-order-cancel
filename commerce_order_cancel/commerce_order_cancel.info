@@ -1,0 +1,4 @@
+name = commerce order Cancel
+description = Defines the Order entity and Cancel feature.
+package = Commerce
+core = 7.x
